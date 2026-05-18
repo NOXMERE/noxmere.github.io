@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOXMERE — Shipping</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --burgundy: #800020; --burgundy-dark: #5c0016;
+      --beige: #f5f0e8; --beige-dark: #ede6d8;
+      --gold: #b8860b; --gold-light: #d4a017;
+      --text-dark: #1a1008; --text-mid: #4a3828;
+      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--beige); color: var(--text-dark); font-weight: 300; overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 48px; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(245,240,232,0.82); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(128,0,32,0.08); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 500; letter-spacing: 0.25em; color: var(--burgundy); text-decoration: none; }
+    .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+    .nav-links a { font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-mid); text-decoration: none; position: relative; transition: color var(--transition); }
+    .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: var(--burgundy); transition: width var(--transition); }
+    .nav-links a:hover, .nav-links .active { color: var(--burgundy); }
+    .nav-links a:hover::after, .nav-links .active::after { width: 100%; }
+    .nav-links .nav-cta { background: var(--burgundy); color: #fff !important; padding: 8px 20px; letter-spacing: 0.12em; }
+    .nav-links .nav-cta::after { display: none; }
+    .nav-links .nav-cta:hover { background: var(--burgundy-dark); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--burgundy); }
+    .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; z-index: 101; background: rgba(245,240,232,0.97); backdrop-filter: blur(20px); padding: 36px 48px; border-bottom: 1px solid rgba(128,0,32,0.12); flex-direction: column; gap: 24px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-mid); text-decoration: none; font-family: 'Cormorant Garamond', serif; }
+
+    /* HERO */
+    .page-hero { min-height: 52vh; background: var(--burgundy); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 120px 48px 80px; text-align: center; }
+    .page-hero-bg { position: absolute; font-family: 'Cormorant Garamond', serif; font-size: clamp(80px,15vw,240px); font-weight: 600; color: rgba(255,255,255,0.04); top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; user-select: none; white-space: nowrap; }
+    .page-hero-inner { position: relative; z-index: 2; max-width: 700px; opacity: 0; animation: fadeIn 1.2s var(--transition) 0.3s forwards; }
+    .page-eyebrow { font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(184,134,11,0.9); margin-bottom: 24px; }
+    .page-hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 300; color: #fff; line-height: 1.1; margin-bottom: 24px; font-style: italic; }
+    .page-hero-desc { font-size: 0.88rem; line-height: 1.9; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; }
+
+    /* SHIPPING HIGHLIGHT BAR */
+    .highlight-bar { background: var(--gold); padding: 18px 48px; }
+    .highlight-bar-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; }
+    .highlight-item { display: flex; align-items: center; gap: 10px; }
+    .highlight-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.6); flex-shrink: 0; }
+    .highlight-text { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.92); }
+
+    /* MAIN CONTENT */
+    .shipping-section { padding: 100px 48px 80px; max-width: 1000px; margin: 0 auto; }
+
+    /* SHIPPING OPTIONS */
+    .options-block { margin-bottom: 80px; }
+    .block-eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .block-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 300; color: var(--burgundy); margin-bottom: 16px; }
+    .block-text { font-size: 0.88rem; line-height: 1.9; color: var(--text-mid); max-width: 620px; margin-bottom: 40px; }
+    .shipping-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-bottom: 48px; }
+    .shipping-card { background: var(--beige-dark); padding: 40px 32px; border-top: 2px solid transparent; transition: border-color var(--transition); }
+    .shipping-card:hover { border-color: var(--burgundy); }
+    .shipping-card.featured { background: var(--burgundy); }
+    .card-label { font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+    .shipping-card.featured .card-label { color: rgba(184,134,11,0.9); }
+    .card-type { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: var(--burgundy); margin-bottom: 8px; }
+    .shipping-card.featured .card-type { color: #fff; }
+    .card-time { font-size: 0.8rem; letter-spacing: 0.1em; color: var(--text-mid); margin-bottom: 20px; }
+    .shipping-card.featured .card-time { color: rgba(255,255,255,0.6); }
+    .card-divider { width: 32px; height: 1px; background: rgba(128,0,32,0.2); margin-bottom: 20px; }
+    .shipping-card.featured .card-divider { background: rgba(255,255,255,0.15); }
+    .card-price { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--burgundy); margin-bottom: 6px; }
+    .shipping-card.featured .card-price { color: #fff; }
+    .card-note { font-size: 0.76rem; color: var(--text-mid); opacity: 0.7; }
+    .shipping-card.featured .card-note { color: rgba(255,255,255,0.5); }
+
+    /* REGIONS TABLE */
+    .regions-block { margin-bottom: 80px; }
+    .regions-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+    .regions-table thead th { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 400; padding: 16px 20px; text-align: left; border-bottom: 1px solid rgba(128,0,32,0.15); }
+    .regions-table tbody td { padding: 18px 20px; border-bottom: 1px solid rgba(128,0,32,0.06); color: var(--text-mid); font-size: 0.84rem; }
+    .regions-table tbody tr:hover td { background: var(--beige-dark); }
+    .regions-table tbody td:first-child { color: var(--text-dark); font-weight: 400; }
+    .tag { display: inline-block; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 3px 10px; background: rgba(128,0,32,0.08); color: var(--burgundy); }
+    .tag.free { background: rgba(184,134,11,0.12); color: var(--gold); }
+
+    /* PROCESS */
+    .process-section { background: var(--burgundy); padding: 80px 48px; margin-bottom: 80px; }
+    .process-inner { max-width: 900px; margin: 0 auto; }
+    .process-eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(184,134,11,0.9); margin-bottom: 16px; }
+    .process-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300; color: #fff; margin-bottom: 48px; font-style: italic; }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+    .process-step { padding: 32px 24px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .p-step-num { font-family: 'Cormorant Garamond', serif; font-size: 0.7rem; letter-spacing: 0.25em; color: rgba(184,134,11,0.7); margin-bottom: 16px; }
+    .p-step-title { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 10px; }
+    .p-step-text { font-size: 0.82rem; line-height: 1.7; color: rgba(255,255,255,0.4); }
+
+    /* POLICY NOTES */
+    .policy-section { padding: 0 48px 100px; max-width: 1000px; margin: 0 auto; }
+    .policy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .policy-card { background: var(--beige-dark); padding: 40px 36px; }
+    .policy-card-eyebrow { font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .policy-card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--burgundy); margin-bottom: 14px; }
+    .policy-card-text { font-size: 0.84rem; line-height: 1.8; color: var(--text-mid); }
+    .policy-card-text a { color: var(--burgundy); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s var(--transition), transform 0.8s var(--transition); }
+    .reveal.visible { opacity: 1; transform: none; }
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    /* FOOTER */
+    footer { background: var(--text-dark); color: rgba(245,240,232,0.6); padding: 80px 48px 36px; }
+    .footer-top { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; margin-bottom: 60px; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 500; letter-spacing: 0.25em; color: var(--beige); text-decoration: none; display: block; margin-bottom: 12px; }
+    .footer-tagline { font-size: 0.78rem; color: rgba(245,240,232,0.4); font-style: italic; font-family: 'Cormorant Garamond', serif; }
+    .footer-nav { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-nav li a { font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(245,240,232,0.5); text-decoration: none; transition: color var(--transition); }
+    .footer-nav li a:hover { color: var(--beige); }
+    .footer-social { display: flex; gap: 16px; }
+    .social-icon { width: 36px; height: 36px; border: 1px solid rgba(245,240,232,0.15); display: flex; align-items: center; justify-content: center; transition: border-color var(--transition); }
+    .social-icon:hover { border-color: rgba(245,240,232,0.5); }
+    .social-icon svg { width: 16px; height: 16px; fill: rgba(245,240,232,0.5); transition: fill var(--transition); }
+    .social-icon:hover svg { fill: var(--beige); }
+    .footer-bottom { border-top: 1px solid rgba(245,240,232,0.07); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-email { font-size: 0.74rem; letter-spacing: 0.12em; color: rgba(245,240,232,0.4); text-decoration: none; transition: color var(--transition); }
+    .footer-email:hover { color: var(--beige); }
+    .footer-copy { font-size: 0.7rem; letter-spacing: 0.06em; color: rgba(245,240,232,0.25); }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { padding: 36px 24px; }
+      .page-hero { padding: 120px 24px 80px; }
+      .highlight-bar { padding: 16px 24px; }
+      .highlight-bar-inner { gap: 24px; }
+      .shipping-section { padding: 64px 24px 40px; }
+      .shipping-cards { grid-template-columns: 1fr; }
+      .regions-block { overflow-x: auto; }
+      .process-section { padding: 60px 24px; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .policy-section { padding: 0 24px 60px; }
+      .policy-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      footer { padding: 60px 24px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">NOXMERE</a>
+  <ul class="nav-links">
+    <li><a href="shop.html">Kolleksiya</a></li>
+    <li><a href="about.html">Haqqımızda</a></li>
+    <li><a href="contact.html">Əlaqə</a></li>
+    <li><a href="shipping.html" class="active">Çatdırılma</a></li>
+    <li><a href="shop.html" class="nav-cta">Shop Now</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menyu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="shop.html" class="mobile-link">Kolleksiya</a>
+  <a href="about.html" class="mobile-link">Haqqımızda</a>
+  <a href="contact.html" class="mobile-link">Əlaqə</a>
+  <a href="size-guide.html" class="mobile-link">Ölçü Cədvəli</a>
+  <a href="faq.html" class="mobile-link">FAQ</a>
+  <a href="shipping.html" class="mobile-link">Çatdırılma</a>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg">SHIPPING</div>
+  <div class="page-hero-inner">
+    <p class="page-eyebrow">Delivery & Returns</p>
+    <h1 class="page-hero-title">Worldwide Shipping</h1>
+    <p class="page-hero-desc">We ship to over 60 countries. Every order is carefully packed and dispatched within 1–2 business days.</p>
+  </div>
+</section>
+
+<!-- HIGHLIGHT BAR -->
+<div class="highlight-bar">
+  <div class="highlight-bar-inner">
+    <div class="highlight-item"><span class="highlight-dot"></span><span class="highlight-text">Free shipping over $100</span></div>
+    <div class="highlight-item"><span class="highlight-dot"></span><span class="highlight-text">Dispatched in 1–2 business days</span></div>
+    <div class="highlight-item"><span class="highlight-dot"></span><span class="highlight-text">30-day free returns</span></div>
+    <div class="highlight-item"><span class="highlight-dot"></span><span class="highlight-text">Tracked worldwide</span></div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<section class="shipping-section">
+
+  <!-- SHIPPING OPTIONS -->
+  <div class="options-block reveal">
+    <p class="block-eyebrow">Delivery Options</p>
+    <h2 class="block-title">Choose How You Receive It</h2>
+    <p class="block-text">All NOXMERE orders are processed Monday to Friday. Orders placed before 12:00 PM are dispatched the same day when possible.</p>
+    <div class="shipping-cards">
+      <div class="shipping-card">
+        <p class="card-label">Standard</p>
+        <p class="card-type">Standard Delivery</p>
+        <p class="card-time">5–8 business days</p>
+        <div class="card-divider"></div>
+        <p class="card-price">$6.90</p>
+        <p class="card-note">Free on orders over $100</p>
+      </div>
+      <div class="shipping-card featured">
+        <p class="card-label">Most Popular</p>
+        <p class="card-type">Express Delivery</p>
+        <p class="card-time">2–4 business days</p>
+        <div class="card-divider"></div>
+        <p class="card-price">$14.90</p>
+        <p class="card-note">Tracked & signed</p>
+      </div>
+      <div class="shipping-card">
+        <p class="card-label">Premium</p>
+        <p class="card-type">Next-Day Delivery</p>
+        <p class="card-time">1 business day</p>
+        <div class="card-divider"></div>
+        <p class="card-price">$24.90</p>
+        <p class="card-note">Available in select regions</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- REGIONS TABLE -->
+  <div class="regions-block reveal">
+    <p class="block-eyebrow">Delivery by Region</p>
+    <h2 class="block-title">Where We Ship</h2>
+    <p class="block-text">Estimated delivery times are from the date of dispatch. Delays due to customs clearance are outside our control but are rare.</p>
+    <table class="regions-table">
+      <thead>
+        <tr>
+          <th>Region</th>
+          <th>Standard</th>
+          <th>Express</th>
+          <th>Free Shipping</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>United States & Canada</td>
+          <td>5–7 days</td>
+          <td>2–3 days</td>
+          <td><span class="tag free">Over $100</span></td>
+        </tr>
+        <tr>
+          <td>Europe (EU)</td>
+          <td>4–6 days</td>
+          <td>2–3 days</td>
+          <td><span class="tag free">Over $100</span></td>
+        </tr>
+        <tr>
+          <td>United Kingdom</td>
+          <td>3–5 days</td>
+          <td>1–2 days</td>
+          <td><span class="tag free">Over $100</span></td>
+        </tr>
+        <tr>
+          <td>Middle East & Azerbaijan</td>
+          <td>6–9 days</td>
+          <td>3–5 days</td>
+          <td><span class="tag free">Over $100</span></td>
+        </tr>
+        <tr>
+          <td>Asia Pacific</td>
+          <td>7–10 days</td>
+          <td>4–6 days</td>
+          <td><span class="tag free">Over $100</span></td>
+        </tr>
+        <tr>
+          <td>Rest of World</td>
+          <td>8–14 days</td>
+          <td>5–8 days</td>
+          <td><span class="tag">Not available</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</section>
+
+<!-- ORDER PROCESS -->
+<div class="process-section reveal">
+  <div class="process-inner">
+    <p class="process-eyebrow">Order Journey</p>
+    <h2 class="process-title">"From our hands to yours."</h2>
+    <div class="process-steps">
+      <div class="process-step">
+        <p class="p-step-num">01</p>
+        <p class="p-step-title">Order Placed</p>
+        <p class="p-step-text">You receive a confirmation email with your order summary and estimated delivery window.</p>
+      </div>
+      <div class="process-step">
+        <p class="p-step-num">02</p>
+        <p class="p-step-title">Packed</p>
+        <p class="p-step-text">Your piece is folded, wrapped in tissue, and placed in our signature matte box — ready for its journey.</p>
+      </div>
+      <div class="process-step">
+        <p class="p-step-num">03</p>
+        <p class="p-step-title">Dispatched</p>
+        <p class="p-step-text">A tracking number is emailed to you the moment your order leaves our facility.</p>
+      </div>
+      <div class="process-step">
+        <p class="p-step-num">04</p>
+        <p class="p-step-title">Delivered</p>
+        <p class="p-step-text">Your NOXMERE piece arrives. If anything is wrong, we make it right — no questions asked.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- POLICY NOTES -->
+<section class="policy-section">
+  <div class="policy-grid reveal">
+    <div class="policy-card">
+      <p class="policy-card-eyebrow">Returns</p>
+      <h3 class="policy-card-title">30-Day Free Returns</h3>
+      <p class="policy-card-text">Unworn and unwashed items can be returned within 30 days of delivery. We cover return shipping on all eligible orders. To initiate a return, <a href="contact.html">contact us</a> with your order number.</p>
+    </div>
+    <div class="policy-card">
+      <p class="policy-card-eyebrow">Exchanges</p>
+      <h3 class="policy-card-title">Size Exchanges</h3>
+      <p class="policy-card-text">Not the right size? We'll exchange it. See our <a href="size-guide.html">Size Guide</a> before ordering, and <a href="contact.html">get in touch</a> if you need a different size. Exchange orders are dispatched within 2 business days of receiving the return.</p>
+    </div>
+    <div class="policy-card">
+      <p class="policy-card-eyebrow">Customs & Duties</p>
+      <h3 class="policy-card-title">International Orders</h3>
+      <p class="policy-card-text">For international orders, customs duties and taxes may apply depending on your country's import regulations. These charges are the responsibility of the recipient and are not included in our shipping fees.</p>
+    </div>
+    <div class="policy-card">
+      <p class="policy-card-eyebrow">Questions</p>
+      <h3 class="policy-card-title">Need Help?</h3>
+      <p class="policy-card-text">Our support team responds within one business day. Email us at <a href="mailto:hello@noxmere.com">hello@noxmere.com</a> or use our <a href="contact.html">contact form</a>. We're here Monday to Friday, 9am – 6pm.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="index.html" class="footer-logo">NOXMERE</a>
+      <p class="footer-tagline">Carry calm like a second skin</p>
+    </div>
+    <ul class="footer-nav">
+      <li><a href="shop.html">Collection</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="size-guide.html">Size Guide</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="shipping.html">Shipping</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/noxme_re?igsh=MWRxaHlyaWt2end4Yg==" target="_blank" rel="noopener" class="social-icon" title="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@noxmere_?_r=1&_t=ZS-96T0BQGcAlx" target="_blank" rel="noopener" class="social-icon" title="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.24 8.24 0 0 0 4.83 1.55V6.79a4.85 4.85 0 0 1-1.06-.1z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <a href="mailto:hello@noxmere.com" class="footer-email">hello@noxmere.com</a>
+    <p class="footer-copy">&copy; 2026 NOXMERE. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
