@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOXMERE — Limited</title>
+  <link rel="icon" type="image/png" href="photos/favicon.png" />
+  <link rel="apple-touch-icon" href="photos/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #080808;
+      --black-mid: #111111;
+      --black-light: #1a1a1a;
+      --white: #f0ece4;
+      --white-dim: rgba(240,236,228,0.45);
+      --white-faint: rgba(240,236,228,0.12);
+      --gold: #b8860b;
+      --gold-dim: rgba(184,134,11,0.5);
+      --transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* GRAIN OVERLAY */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.4;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 48px; height: 72px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(8,8,8,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--white-faint);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 500;
+      letter-spacing: 0.3em; color: var(--white);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+    .nav-links a { font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; position: relative; transition: color var(--transition); }
+    .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: var(--white); transition: width var(--transition); }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links .nav-cta { background: var(--white-faint); color: var(--white) !important; padding: 8px 20px; letter-spacing: 0.12em; border: 1px solid rgba(240,236,228,0.2); }
+    .nav-links .nav-cta::after { display: none; }
+    .nav-links .nav-cta:hover { background: rgba(240,236,228,0.2); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: var(--transition); }
+    .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; z-index: 101; background: rgba(8,8,8,0.97); backdrop-filter: blur(20px); padding: 36px 48px; border-bottom: 1px solid var(--white-faint); flex-direction: column; gap: 24px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; font-family: 'Cormorant Garamond', serif; font-weight: 400; }
+
+    /* HEADER */
+    .page-header {
+      padding: 160px 48px 60px;
+      display: flex; align-items: flex-end; justify-content: space-between;
+      border-bottom: 1px solid var(--white-faint);
+      position: relative; overflow: hidden;
+    }
+    .header-bg-text {
+      position: absolute;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(80px, 14vw, 200px);
+      font-weight: 300;
+      color: #800020;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      letter-spacing: 0.18em;
+      pointer-events: none; user-select: none;
+      line-height: 0.9;
+      white-space: nowrap;
+    }
+    .header-left { position: relative; z-index: 2; }
+    .header-eyebrow {
+      font-size: 0.65rem; letter-spacing: 0.35em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 20px;
+      opacity: 0; transform: translateY(16px);
+      animation: fadeUp 0.8s var(--transition) 0.2s forwards;
+    }
+    .header-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 300; letter-spacing: 0.12em;
+      color: var(--white); line-height: 1;
+      opacity: 0; transform: translateY(24px);
+      animation: fadeUp 0.9s var(--transition) 0.35s forwards;
+    }
+    .header-right {
+      position: relative; z-index: 2;
+      text-align: right;
+      opacity: 0; transform: translateY(16px);
+      animation: fadeUp 0.8s var(--transition) 0.5s forwards;
+    }
+    .header-count {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem; font-weight: 300;
+      color: var(--white-dim); line-height: 1;
+    }
+    .header-count-label {
+      font-size: 0.62rem; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--white-dim);
+      margin-top: 4px;
+    }
+
+    /* DIVIDER LINE */
+    .section-line {
+      width: 1px; height: 60px;
+      background: linear-gradient(to bottom, var(--white-faint), transparent);
+      margin: 0 auto;
+    }
+
+    /* PRODUCT LIST — vertical, editorial */
+    .products-wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 48px 120px;
+    }
+
+    .product-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      border-bottom: 1px solid var(--white-faint);
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+      margin-bottom: 48px;
+    }
+    .product-item.visible { opacity: 1; transform: none; }
+    .product-item:first-child { border-top: 1px solid var(--white-faint); }
+
+    /* IMAGE SIDE */
+    .product-visual {
+      aspect-ratio: 4/5;
+      background: var(--black-mid);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .product-visual-letter {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 10rem; font-weight: 600;
+      color: rgba(240,236,228,0.04);
+      position: absolute; pointer-events: none;
+      user-select: none;
+    }
+    .product-visual-placeholder {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.8rem; letter-spacing: 0.12em;
+      color: rgba(240,236,228,0.2);
+    }
+    .product-visual img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.9s var(--transition);
+    }
+    .product-item:hover .product-visual img { transform: scale(1.04); }
+
+    /* HOVER REVEAL MESSAGE */
+    .product-visual-overlay {
+      position: absolute; inset: 0;
+      background: rgba(8,8,8,0.7);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .product-item:hover .product-visual-overlay { opacity: 1; }
+    .overlay-msg {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-style: italic;
+      color: var(--white); letter-spacing: 0.06em;
+      text-align: center; padding: 0 24px;
+    }
+
+    /* INFO SIDE */
+    .product-info {
+      padding: 48px 40px;
+      display: flex; flex-direction: column;
+      justify-content: space-between;
+      background: var(--black);
+    }
+    .product-info-top { }
+    .product-number {
+      font-size: 0.6rem; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 24px; display: block;
+    }
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 300; letter-spacing: 0.06em;
+      color: var(--white); line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .product-desc {
+      font-size: 0.82rem; letter-spacing: 0.04em;
+      color: var(--white-dim); line-height: 1.9;
+      max-width: 320px;
+    }
+
+    .product-info-bottom { }
+    .product-availability {
+      margin-bottom: 28px;
+    }
+    .availability-bar-wrap {
+      width: 100%; height: 1px;
+      background: var(--white-faint);
+      margin-bottom: 10px; overflow: hidden;
+    }
+    .availability-bar {
+      height: 100%;
+      background: var(--gold);
+      transition: width 1.2s cubic-bezier(0.16,1,0.3,1);
+    }
+    .availability-text {
+      display: flex; justify-content: space-between;
+      font-size: 0.62rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--white-dim);
+    }
+    .availability-text .remaining { color: var(--gold); }
+
+    .product-price-row {
+      display: flex; align-items: flex-end;
+      justify-content: space-between; gap: 16px;
+      margin-bottom: 28px;
+    }
+    .product-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem; font-weight: 400;
+      font-variant-numeric: lining-nums;
+      font-style: normal;
+      color: var(--white); letter-spacing: 0.06em;
+    }
+    .product-edition {
+      font-size: 0.62rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--white-dim);
+      padding-bottom: 6px;
+    }
+
+    .btn-acquire {
+      display: block; width: 100%;
+      padding: 16px 32px;
+      background: transparent;
+      border: 1px solid rgba(240,236,228,0.2);
+      color: var(--white);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem; font-weight: 300;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      text-decoration: none; text-align: center;
+      transition: background var(--transition), border-color var(--transition);
+      cursor: pointer;
+    }
+    .btn-acquire:hover {
+      background: var(--white-faint);
+      border-color: rgba(240,236,228,0.5);
+    }
+
+    /* EDITION COUNT */
+    .product-edition-count {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 300;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    /* PAWN DIVIDER */
+    .pawn-divider {
+      text-align: center;
+      padding: 48px 0;
+      font-size: 1.4rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      user-select: none;
+    }
+
+    /* BOTTOM NOTE */
+    .bottom-note {
+      text-align: center;
+      padding: 0 48px 100px;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+    }
+    .bottom-note.visible { opacity: 1; transform: none; }
+    .bottom-note p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-style: italic;
+      color: var(--white-dim); letter-spacing: 0.06em;
+      margin-bottom: 40px;
+    }
+    .btn-return {
+      display: inline-block;
+      padding: 14px 40px;
+      border: 1px solid rgba(240,236,228,0.25);
+      font-size: 0.68rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--white-dim);
+      text-decoration: none;
+      transition: color var(--transition), border-color var(--transition);
+    }
+    .btn-return:hover { color: var(--white); border-color: rgba(240,236,228,0.6); }
+
+    /* FOOTER */
+    .site-footer {
+      text-align: center;
+      padding: 40px 48px 60px;
+      border-top: 1px solid var(--white-faint);
+    }
+    .footer-email {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem; letter-spacing: 0.2em;
+      text-transform: lowercase; color: var(--white-dim);
+      text-decoration: none;
+      transition: color var(--transition);
+      display: block; margin-bottom: 16px;
+    }
+    .footer-email:hover { color: var(--gold); }
+    .footer-copy {
+      font-size: 0.6rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: rgba(240,236,228,0.2);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      to { opacity: 1; transform: none; }
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { padding: 36px 24px; }
+      .page-header { padding: 130px 24px 48px; flex-direction: column; gap: 32px; align-items: flex-start; }
+      .header-right { text-align: left; }
+      .products-wrap { padding: 0 24px 80px; }
+      .product-item { grid-template-columns: 1fr; }
+      .product-visual { aspect-ratio: 3/2; }
+      .product-info { padding: 32px 24px; }
+      .bottom-note { padding: 0 24px 80px; }
+      .header-bg-text { font-size: 13vw; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">NOXMERE</a>
+</nav>
+
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="header-bg-text">LIMITED</div>
+  <div class="header-left">
+    <p class="header-eyebrow">Private Archive</p>
+    <h1 class="header-title">Select<br>Objects</h1>
+  </div>
+  <div class="header-right">
+    <div class="header-count" id="totalCount">03</div>
+    <p class="header-count-label">Objects in Archive</p>
+  </div>
+</header>
+
+<div class="section-line"></div>
+
+<!-- PRODUCTS -->
+<div class="products-wrap">
+
+  <!-- PRODUCT 01 -->
+  <div class="product-item reveal">
+    <div class="product-visual">
+      <span class="product-visual-letter">NM</span>
+      <p class="product-visual-placeholder">Product image</p>
+      <div class="product-visual-overlay">
+        <p class="overlay-msg">Twenty were made.<br>Not one more.</p>
+      </div>
+    </div>
+    <div class="product-info">
+      <div class="product-info-top">
+        <span class="product-number">No. 001 — Edition I</span>
+        <h2 class="product-name">The Silent<br>Weight</h2>
+        <p class="product-desc">Weight without noise. Presence without declaration. It was made for those who have long stopped needing to be seen.</p>
+      </div>
+      <div class="product-info-bottom">
+        <div class="product-edition-count">Edition of 20</div>
+        <div class="product-price-row">
+          <span class="product-price">$119</span>
+          <span class="product-edition">Limited Edition</span>
+        </div>
+        <a href="forst/limited-No.001-Edition-I.html" class="btn-acquire">Acquire</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="product-item reveal" style="transition-delay: 0.15s">
+    <div class="product-visual">
+      <span class="product-visual-letter">NM</span>
+      <p class="product-visual-placeholder">Product image</p>
+      <div class="product-visual-overlay">
+        <p class="overlay-msg">Thirty exist.<br>Silence is the statement.</p>
+      </div>
+    </div>
+    <div class="product-info">
+      <div class="product-info-top">
+        <span class="product-number">No. 002 — Edition I</span>
+        <h2 class="product-name">The Dark<br>Restraint</h2>
+        <p class="product-desc">Darkness as discipline. Restraint as power. Nothing here is ornamental — every absence is a choice made with certainty.</p>
+      </div>
+      <div class="product-info-bottom">
+        <div class="product-edition-count">Edition of 30</div>
+        <div class="product-price-row">
+          <span class="product-price">$129</span>
+          <span class="product-edition">Limited Edition</span>
+        </div>
+        <a href="forst/limited-No.002-Edition-I.html" class="btn-acquire">Acquire</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="product-item reveal" style="transition-delay: 0.3s">
+    <div class="product-visual">
+      <span class="product-visual-letter">NM</span>
+      <p class="product-visual-placeholder">Product image</p>
+      <div class="product-visual-overlay">
+        <p class="overlay-msg">Five exist.<br>No more.</p>
+      </div>
+    </div>
+    <div class="product-info">
+      <div class="product-info-top">
+        <span class="product-number">No. 003 — Edition I</span>
+        <h2 class="product-name">The Final<br>Move</h2>
+        <p class="product-desc">The last piece of a closed chapter. Five were made — not as a strategy, but as a conclusion. After this, nothing follows.</p>
+      </div>
+      <div class="product-info-bottom">
+        <div class="product-edition-count">Edition of 5</div>
+        <div class="product-price-row">
+          <span class="product-price">$139</span>
+          <span class="product-edition">Final Edition</span>
+        </div>
+        <a href="forst/limited-No.003-Edition-I.html" class="btn-acquire">Acquire</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-item reveal" style="transition-delay: 0.45s">
+    <div class="product-visual" style="position:relative; overflow:hidden;">
+      <span class="product-visual-letter" style="opacity:0.15; filter: blur(4px);">NM</span>
+      <p class="product-visual-placeholder" style="opacity:0;">—</p>
+      <div style="
+        position:absolute; inset:0;
+        display:flex; flex-direction:column;
+        align-items:center; justify-content:center;
+        gap: 18px;
+      ">
+        <p style="
+          font-family: 'Cormorant Garamond', serif;
+          font-size: clamp(1.4rem, 2.5vw, 2rem);
+          font-weight: 300; font-style: italic;
+          color: var(--white); letter-spacing: 0.08em;
+          text-align: center; padding: 0 24px;
+        ">Something is being prepared.</p>
+        <p style="
+          font-size: 0.62rem; letter-spacing: 0.3em;
+          text-transform: uppercase; color: var(--gold);
+          opacity: 0.7;
+        ">Not yet.</p>
+      </div>
+    </div>
+    <div class="product-info" style="justify-content:center; align-items:flex-start; gap: 28px;">
+      <div class="product-info-top">
+        <span class="product-number" style="opacity:0.4;">No. 001 — Edition II</span>
+        <h2 class="product-name" style="filter: blur(6px); user-select:none; opacity:0.3;">Unknown<br>Object</h2>
+        <p class="product-desc" style="opacity:0.5; font-style:italic;">
+          It has no name yet. It has no price. It is not ready to be seen — and that is the point.
+        </p>
+      </div>
+      <div class="product-info-bottom" style="width:100%;">
+        <div class="product-edition-count" style="opacity:0.4;">Edition — Undisclosed</div>
+        <div class="product-price-row">
+          <span class="product-price" style="opacity:0.2; filter:blur(4px); user-select:none;">$???</span>
+          <span class="product-edition">Forthcoming</span>
+        </div>
+        <div style="
+          display:block; width:100%;
+          padding: 16px 32px;
+          border: 1px solid rgba(240,236,228,0.1);
+          color: var(--white-dim);
+          font-family: 'Jost', sans-serif;
+          font-size: 0.7rem; font-weight: 300;
+          letter-spacing: 0.25em; text-transform: uppercase;
+          text-align: center; opacity: 0.5;
+          cursor: default;
+        ">Not Yet Available</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="bottom-note reveal">
+  <div class="pawn-divider">♟</div>
+  <p>Not For Every Eye.</p>
+  <a href="index.html" class="btn-return">Return to Home</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <a href="mailto:info.noxmere@gmail.com" class="footer-email">info.noxmere@gmail.com</a>
+  <p class="footer-copy">© 2025 NOXMERE. Not For Every Eye.</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Animate availability bars on scroll
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const bars = e.target.querySelectorAll('.availability-bar');
+        bars.forEach(bar => {
+          const width = bar.style.width;
+          bar.style.width = '0%';
+          setTimeout(() => { bar.style.width = width; }, 200);
+        });
+        barObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.product-item').forEach(el => barObserver.observe(el));
+</script>
+
+</body>
+</html>

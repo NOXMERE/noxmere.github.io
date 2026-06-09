@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="az">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NOXMERE — Shipping</title>
+  <link rel="icon" type="image/png" href="photos/favicon.png" />
+  <link rel="apple-touch-icon" href="photos/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -45,11 +47,11 @@
     .page-hero-desc { font-size: 0.88rem; line-height: 1.9; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; }
 
     /* SHIPPING HIGHLIGHT BAR */
-    .highlight-bar { background: var(--gold); padding: 18px 48px; }
-    .highlight-bar-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; }
+    .highlight-bar { background: var(--gold); padding: 24px 48px; }
+    .highlight-bar-inner { max-width: 700px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; justify-items: center; gap: 16px 40px; }
     .highlight-item { display: flex; align-items: center; gap: 10px; }
     .highlight-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.6); flex-shrink: 0; }
-    .highlight-text { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.92); }
+    .highlight-text { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.92); font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 0.88rem; font-weight: 300; }
 
     /* MAIN CONTENT */
     .shipping-section { padding: 100px 48px 80px; max-width: 1000px; margin: 0 auto; }
@@ -71,7 +73,7 @@
     .shipping-card.featured .card-time { color: rgba(255,255,255,0.6); }
     .card-divider { width: 32px; height: 1px; background: rgba(128,0,32,0.2); margin-bottom: 20px; }
     .shipping-card.featured .card-divider { background: rgba(255,255,255,0.15); }
-    .card-price { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--burgundy); margin-bottom: 6px; }
+    .card-price { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 400; font-variant-numeric: lining-nums; font-style: normal; letter-spacing: 0.06em; color: var(--burgundy); margin-bottom: 6px; }
     .shipping-card.featured .card-price { color: #fff; }
     .card-note { font-size: 0.76rem; color: var(--text-mid); opacity: 0.7; }
     .shipping-card.featured .card-note { color: rgba(255,255,255,0.5); }
@@ -145,6 +147,7 @@
       .policy-section { padding: 0 24px 60px; }
       .policy-grid { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
       footer { padding: 60px 24px 28px; }
     }
   </style>
@@ -155,129 +158,96 @@
 <nav>
   <a href="index.html" class="nav-logo">NOXMERE</a>
   <ul class="nav-links">
-    <li><a href="shop.html">Kolleksiya</a></li>
-    <li><a href="about.html">Haqqımızda</a></li>
-    <li><a href="contact.html">Əlaqə</a></li>
-    <li><a href="shipping.html" class="active">Çatdırılma</a></li>
-    <li><a href="shop.html" class="nav-cta">Shop Now</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="shop.html" class="nav-cta">Enter Collection</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menyu"><span></span><span></span><span></span></button>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="shop.html" class="mobile-link">Kolleksiya</a>
-  <a href="about.html" class="mobile-link">Haqqımızda</a>
-  <a href="contact.html" class="mobile-link">Əlaqə</a>
-  <a href="size-guide.html" class="mobile-link">Ölçü Cədvəli</a>
+  <a href="shop.html" class="mobile-link">Collection</a>
+  <a href="about.html" class="mobile-link">About</a>
+  <a href="contact.html" class="mobile-link">Contact</a>
+  <a href="size-guide.html" class="mobile-link">Size Guide</a>
   <a href="faq.html" class="mobile-link">FAQ</a>
-  <a href="shipping.html" class="mobile-link">Çatdırılma</a>
 </div>
 
 <!-- HERO -->
 <section class="page-hero">
   <div class="page-hero-bg">SHIPPING</div>
   <div class="page-hero-inner">
-    <p class="page-eyebrow">Delivery & Returns</p>
-    <h1 class="page-hero-title">Worldwide Shipping</h1>
-    <p class="page-hero-desc">We ship to over 60 countries. Every order is carefully packed and dispatched within 1–2 business days.</p>
+    <p class="page-eyebrow">Delivery</p>
+    <h1 class="page-hero-title">Shipping</h1>
+    <p class="page-hero-desc">Each NOXMERE piece is produced in limited quantities and prepared individually. Estimated delivery times are provided as guidance and may vary slightly depending on destination and seasonal demand.</p>
   </div>
 </section>
 
-<!-- HIGHLIGHT BAR -->
-<div class="highlight-bar">
-  <div class="highlight-bar-inner">
-    <div class="highlight-item"><span class="highlight-dot"></span><span class="highlight-text">Free shipping over $100</span></div>
-    <div class="highlight-item"><span class="highlight-dot"></span><span class="highlight-text">Dispatched in 1–2 business days</span></div>
-    <div class="highlight-item"><span class="highlight-dot"></span><span class="highlight-text">30-day free returns</span></div>
-    <div class="highlight-item"><span class="highlight-dot"></span><span class="highlight-text">Tracked worldwide</span></div>
-  </div>
-</div>
+
 
 <!-- MAIN CONTENT -->
 <section class="shipping-section">
 
   <!-- SHIPPING OPTIONS -->
   <div class="options-block reveal">
-    <p class="block-eyebrow">Delivery Options</p>
-    <h2 class="block-title">Choose How You Receive It</h2>
-    <p class="block-text">All NOXMERE orders are processed Monday to Friday. Orders placed before 12:00 PM are dispatched the same day when possible.</p>
+    <p class="block-eyebrow">Estimated Delivery Times</p>
+    <h2 class="block-title">Delivery by Destination</h2>
+    <p class="block-text">All estimates are calculated from the date of dispatch, following individual preparation of each order.</p>
     <div class="shipping-cards">
       <div class="shipping-card">
-        <p class="card-label">Standard</p>
-        <p class="card-type">Standard Delivery</p>
-        <p class="card-time">5–8 business days</p>
+        <p class="card-label">Destination</p>
+        <p class="card-type">United States</p>
+        <p class="card-time">Estimated delivery</p>
         <div class="card-divider"></div>
-        <p class="card-price">$6.90</p>
-        <p class="card-note">Free on orders over $100</p>
+        <p class="card-price">2–5</p>
+        <p class="card-note">business days</p>
       </div>
       <div class="shipping-card featured">
-        <p class="card-label">Most Popular</p>
-        <p class="card-type">Express Delivery</p>
-        <p class="card-time">2–4 business days</p>
+        <p class="card-label">Destination</p>
+        <p class="card-type">Europe</p>
+        <p class="card-time">Estimated delivery</p>
         <div class="card-divider"></div>
-        <p class="card-price">$14.90</p>
-        <p class="card-note">Tracked & signed</p>
+        <p class="card-price">5–15</p>
+        <p class="card-note">business days</p>
       </div>
       <div class="shipping-card">
-        <p class="card-label">Premium</p>
-        <p class="card-type">Next-Day Delivery</p>
-        <p class="card-time">1 business day</p>
+        <p class="card-label">Destination</p>
+        <p class="card-type">United Kingdom</p>
+        <p class="card-time">Estimated delivery</p>
         <div class="card-divider"></div>
-        <p class="card-price">$24.90</p>
-        <p class="card-note">Available in select regions</p>
+        <p class="card-price">5–15</p>
+        <p class="card-note">business days</p>
       </div>
     </div>
   </div>
 
   <!-- REGIONS TABLE -->
   <div class="regions-block reveal">
-    <p class="block-eyebrow">Delivery by Region</p>
-    <h2 class="block-title">Where We Ship</h2>
-    <p class="block-text">Estimated delivery times are from the date of dispatch. Delays due to customs clearance are outside our control but are rare.</p>
+    <p class="block-eyebrow">Further Destinations</p>
+    <h2 class="block-title">Additional Regions</h2>
+    <p class="block-text">Delivery estimates reflect standard transit times and begin once preparation has been completed.</p>
     <table class="regions-table">
       <thead>
         <tr>
-          <th>Region</th>
-          <th>Standard</th>
-          <th>Express</th>
-          <th>Free Shipping</th>
+          <th>Destination</th>
+          <th>Estimated Delivery</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>United States & Canada</td>
-          <td>5–7 days</td>
-          <td>2–3 days</td>
-          <td><span class="tag free">Over $100</span></td>
+          <td>Canada</td>
+          <td>10–30 business days</td>
         </tr>
         <tr>
-          <td>Europe (EU)</td>
-          <td>4–6 days</td>
-          <td>2–3 days</td>
-          <td><span class="tag free">Over $100</span></td>
+          <td>Australia</td>
+          <td>10–30 business days</td>
         </tr>
         <tr>
-          <td>United Kingdom</td>
-          <td>3–5 days</td>
-          <td>1–2 days</td>
-          <td><span class="tag free">Over $100</span></td>
-        </tr>
-        <tr>
-          <td>Middle East & Azerbaijan</td>
-          <td>6–9 days</td>
-          <td>3–5 days</td>
-          <td><span class="tag free">Over $100</span></td>
-        </tr>
-        <tr>
-          <td>Asia Pacific</td>
-          <td>7–10 days</td>
-          <td>4–6 days</td>
-          <td><span class="tag free">Over $100</span></td>
+          <td>Japan</td>
+          <td>10–15 business days</td>
         </tr>
         <tr>
           <td>Rest of World</td>
-          <td>8–14 days</td>
-          <td>5–8 days</td>
-          <td><span class="tag">Not available</span></td>
+          <td>10–30 business days</td>
         </tr>
       </tbody>
     </table>
@@ -285,31 +255,31 @@
 
 </section>
 
-<!-- ORDER PROCESS -->
+<!-- ADDITIONAL INFORMATION -->
 <div class="process-section reveal">
   <div class="process-inner">
-    <p class="process-eyebrow">Order Journey</p>
-    <h2 class="process-title">"From our hands to yours."</h2>
+    <p class="process-eyebrow">Additional Information</p>
+    <h2 class="process-title">Before You Receive It</h2>
     <div class="process-steps">
       <div class="process-step">
-        <p class="p-step-num">01</p>
-        <p class="p-step-title">Order Placed</p>
-        <p class="p-step-text">You receive a confirmation email with your order summary and estimated delivery window.</p>
+        <p class="p-step-num">I</p>
+        <p class="p-step-title">Preparation</p>
+        <p class="p-step-text">All orders are prepared individually before dispatch. Delivery estimates begin once preparation has been completed.</p>
       </div>
       <div class="process-step">
-        <p class="p-step-num">02</p>
-        <p class="p-step-title">Packed</p>
-        <p class="p-step-text">Your piece is folded, wrapped in tissue, and placed in our signature matte box — ready for its journey.</p>
+        <p class="p-step-num">II</p>
+        <p class="p-step-title">Tracking</p>
+        <p class="p-step-text">A tracking reference is provided at the time of dispatch. Updates are available directly through the carrier.</p>
       </div>
       <div class="process-step">
-        <p class="p-step-num">03</p>
-        <p class="p-step-title">Dispatched</p>
-        <p class="p-step-text">A tracking number is emailed to you the moment your order leaves our facility.</p>
+        <p class="p-step-num">III</p>
+        <p class="p-step-title">Customs</p>
+        <p class="p-step-text">For international destinations, customs duties and import taxes may apply. These are the responsibility of the recipient.</p>
       </div>
       <div class="process-step">
-        <p class="p-step-num">04</p>
-        <p class="p-step-title">Delivered</p>
-        <p class="p-step-text">Your NOXMERE piece arrives. If anything is wrong, we make it right — no questions asked.</p>
+        <p class="p-step-num">IV</p>
+        <p class="p-step-title">Demand</p>
+        <p class="p-step-text">During periods of increased demand, delivery times may vary slightly beyond the estimates provided.</p>
       </div>
     </div>
   </div>
@@ -320,23 +290,23 @@
   <div class="policy-grid reveal">
     <div class="policy-card">
       <p class="policy-card-eyebrow">Returns</p>
-      <h3 class="policy-card-title">30-Day Free Returns</h3>
-      <p class="policy-card-text">Unworn and unwashed items can be returned within 30 days of delivery. We cover return shipping on all eligible orders. To initiate a return, <a href="contact.html">contact us</a> with your order number.</p>
+      <h3 class="policy-card-title">Client Assistance</h3>
+      <p class="policy-card-text">Unworn and unwashed items may be returned within 14 days of delivery. To initiate a return, <a href="contact.html">contact us</a> with your order reference.</p>
     </div>
     <div class="policy-card">
       <p class="policy-card-eyebrow">Exchanges</p>
       <h3 class="policy-card-title">Size Exchanges</h3>
-      <p class="policy-card-text">Not the right size? We'll exchange it. See our <a href="size-guide.html">Size Guide</a> before ordering, and <a href="contact.html">get in touch</a> if you need a different size. Exchange orders are dispatched within 2 business days of receiving the return.</p>
+      <p class="policy-card-text">We accommodate size exchanges on eligible pieces. Consult our <a href="size-guide.html">Size Guide</a> before placing your order, and <a href="contact.html">contact us</a> if an exchange is required.</p>
     </div>
     <div class="policy-card">
       <p class="policy-card-eyebrow">Customs & Duties</p>
       <h3 class="policy-card-title">International Orders</h3>
-      <p class="policy-card-text">For international orders, customs duties and taxes may apply depending on your country's import regulations. These charges are the responsibility of the recipient and are not included in our shipping fees.</p>
+      <p class="policy-card-text">Customs duties and import taxes may apply to international orders depending on the destination country's regulations. These charges are the responsibility of the recipient.</p>
     </div>
     <div class="policy-card">
-      <p class="policy-card-eyebrow">Questions</p>
-      <h3 class="policy-card-title">Need Help?</h3>
-      <p class="policy-card-text">Our support team responds within one business day. Email us at <a href="mailto:hello@noxmere.com">hello@noxmere.com</a> or use our <a href="contact.html">contact form</a>. We're here Monday to Friday, 9am – 6pm.</p>
+      <p class="policy-card-eyebrow">Enquiries</p>
+      <h3 class="policy-card-title">Contact</h3>
+      <p class="policy-card-text">For delivery enquiries, reach us at <a href="mailto:support.noxmere@gmail.com">support.noxmere@gmail.com</a> or through our <a href="contact.html">contact page</a>. We respond within one business day.</p>
     </div>
   </div>
 </section>
@@ -346,14 +316,13 @@
   <div class="footer-top">
     <div>
       <a href="index.html" class="footer-logo">NOXMERE</a>
-      <p class="footer-tagline">Carry calm like a second skin</p>
+      <p class="footer-tagline">Not for every eye.</p>
     </div>
     <ul class="footer-nav">
       <li><a href="shop.html">Collection</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="size-guide.html">Size Guide</a></li>
       <li><a href="faq.html">FAQ</a></li>
-      <li><a href="shipping.html">Shipping</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div>
@@ -361,14 +330,14 @@
         <a href="https://www.instagram.com/noxme_re?igsh=MWRxaHlyaWt2end4Yg==" target="_blank" rel="noopener" class="social-icon" title="Instagram">
           <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         </a>
-        <a href="https://www.tiktok.com/@noxmere_?_r=1&_t=ZS-96T0BQGcAlx" target="_blank" rel="noopener" class="social-icon" title="TikTok">
+        <a href="https://www.tiktok.com/@noxme_re?_r=1&_t=ZS-96fXhUpxi6P" target="_blank" rel="noopener" class="social-icon" title="TikTok">
           <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.24 8.24 0 0 0 4.83 1.55V6.79a4.85 4.85 0 0 1-1.06-.1z"/></svg>
         </a>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <a href="mailto:hello@noxmere.com" class="footer-email">hello@noxmere.com</a>
+    <a href="mailto:info.noxmere@gmail.com" class="footer-email">info.noxmere@gmail.com</a>
     <p class="footer-copy">&copy; 2026 NOXMERE. All rights reserved.</p>
   </div>
 </footer>

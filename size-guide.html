@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NOXMERE — Size Guide</title>
+  <link rel="icon" type="image/png" href="photos/favicon.png" />
+  <link rel="apple-touch-icon" href="photos/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -45,7 +47,7 @@
     .page-hero-desc { font-size: 0.88rem; line-height: 1.9; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; }
 
     /* MAIN CONTENT */
-    .guide-section { padding: 100px 48px 120px; max-width: 1000px; margin: 0 auto; }
+    .guide-section { padding: 100px 48px 0; max-width: 1000px; margin: 0 auto; }
 
     /* HOW TO MEASURE */
     .measure-block { margin-bottom: 80px; }
@@ -68,7 +70,7 @@
     .size-table tbody td:first-child { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 500; color: var(--burgundy); }
 
     /* FIT NOTES */
-    .fit-notes { background: var(--burgundy); padding: 64px 48px; margin-bottom: 80px; }
+    .fit-notes { background: var(--burgundy); padding: 64px 48px; margin-bottom: 0; }
     .fit-notes-inner { max-width: 900px; margin: 0 auto; }
     .fit-notes-eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(184,134,11,0.9); margin-bottom: 16px; }
     .fit-notes-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 300; color: #fff; margin-bottom: 40px; font-style: italic; }
@@ -82,8 +84,8 @@
     .guide-cta { text-align: center; padding: 20px 0 40px; }
     .guide-cta-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300; color: var(--burgundy); margin-bottom: 12px; }
     .guide-cta-sub { font-size: 0.86rem; color: var(--text-mid); opacity: 0.7; margin-bottom: 36px; }
-    .btn-primary { display: inline-block; padding: 16px 48px; background: var(--gold); color: #fff; font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: background var(--transition), transform var(--transition); }
-    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-primary { display: inline-block; padding: 16px 48px; background: #fff; color: var(--burgundy); border: 1px solid var(--burgundy); font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: background 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .btn-primary:hover { background: var(--burgundy); color: #fff; transform: translateY(-2px); }
     .btn-outline { display: inline-block; margin-left: 16px; padding: 15px 40px; border: 1px solid var(--burgundy); color: var(--burgundy); font-family: 'Jost', sans-serif; font-size: 0.76rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: all var(--transition); }
     .btn-outline:hover { background: var(--burgundy); color: #fff; }
 
@@ -122,6 +124,7 @@
       .fit-notes { padding: 48px 24px; }
       .btn-outline { margin-left: 0; margin-top: 12px; display: inline-block; }
       .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
       footer { padding: 60px 24px 28px; }
     }
   </style>
@@ -132,30 +135,27 @@
 <nav>
   <a href="index.html" class="nav-logo">NOXMERE</a>
   <ul class="nav-links">
-    <li><a href="shop.html">Kolleksiya</a></li>
-    <li><a href="about.html">Haqqımızda</a></li>
-    <li><a href="contact.html">Əlaqə</a></li>
-    <li><a href="size-guide.html" class="active">Ölçü Cədvəli</a></li>
-    <li><a href="shop.html" class="nav-cta">Shop Now</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="shop.html" class="nav-cta">Enter Collection</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menyu"><span></span><span></span><span></span></button>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="shop.html" class="mobile-link">Kolleksiya</a>
-  <a href="about.html" class="mobile-link">Haqqımızda</a>
-  <a href="contact.html" class="mobile-link">Əlaqə</a>
-  <a href="size-guide.html" class="mobile-link">Ölçü Cədvəli</a>
+  <a href="shop.html" class="mobile-link">Collection</a>
+  <a href="about.html" class="mobile-link">About</a>
+  <a href="contact.html" class="mobile-link">Contact</a>
   <a href="faq.html" class="mobile-link">FAQ</a>
-  <a href="shipping.html" class="mobile-link">Çatdırılma</a>
+  <a href="shipping.html" class="mobile-link">Shipping</a>
 </div>
 
 <!-- HERO -->
 <section class="page-hero">
   <div class="page-hero-bg">SIZE GUIDE</div>
   <div class="page-hero-inner">
-    <p class="page-eyebrow">Fit & Measurements</p>
-    <h1 class="page-hero-title">Find Your Perfect Fit</h1>
-    <p class="page-hero-desc">Our fit is intentionally considered — not too relaxed, not too fitted. Use this guide to find your size with confidence.</p>
+    <p class="page-eyebrow">Proportion & Form</p>
+    <h1 class="page-hero-title">The Intended Silhouette</h1>
+    <p class="page-hero-desc">Each NOXMERE garment is developed with a considered balance of structure, drape, and proportion.</p>
   </div>
 </section>
 
@@ -165,8 +165,8 @@
   <!-- HOW TO MEASURE -->
   <div class="measure-block reveal">
     <p class="block-eyebrow">Before You Begin</p>
-    <h2 class="block-title">How to Measure Yourself</h2>
-    <p class="block-text">For best results, use a soft measuring tape. Measure directly over light clothing or bare skin. Have someone assist you for the most accurate readings.</p>
+    <h2 class="block-title">Measurement Guide</h2>
+    <p class="block-text">Use a soft measuring tape. Measure over bare skin or light clothing. A second person ensures precision.</p>
     <div class="measure-steps">
       <div class="measure-step">
         <div class="step-num">01</div>
@@ -190,7 +190,9 @@
   <div class="table-block reveal">
     <p class="block-eyebrow">Size Chart</p>
     <h2 class="block-title">Measurements in Centimetres</h2>
-    <p class="block-text">All measurements refer to the garment, not body measurements. For a relaxed fit, choose your standard size. For a cleaner silhouette, size down.</p>
+    <p class="block-text">All measurements refer to the garment. For a relaxed silhouette, select your standard size. For a more defined form, size down. Each product page carries its own precise measurements.</p>
+
+    <p class="block-eyebrow" style="margin-top: 48px; margin-bottom: 20px;">Men</p>
     <div class="size-table-wrap">
       <table class="size-table">
         <thead>
@@ -200,58 +202,40 @@
             <th>Shoulder (cm)</th>
             <th>Length (cm)</th>
             <th>Sleeve (cm)</th>
-            <th>Recommended Body Chest</th>
+            <th>Body Chest</th>
           </tr>
         </thead>
         <tbody>
+          <tr><td>XS</td><td>98</td><td>43</td><td>64</td><td>62</td><td>82 – 88 cm</td></tr>
+          <tr><td>S</td><td>104</td><td>45</td><td>66</td><td>63</td><td>88 – 94 cm</td></tr>
+          <tr><td>M</td><td>110</td><td>47</td><td>68</td><td>64</td><td>94 – 100 cm</td></tr>
+          <tr><td>L</td><td>116</td><td>49</td><td>70</td><td>65</td><td>100 – 106 cm</td></tr>
+          <tr><td>XL</td><td>124</td><td>52</td><td>72</td><td>66</td><td>106 – 114 cm</td></tr>
+          <tr><td>XXL</td><td>132</td><td>55</td><td>74</td><td>67</td><td>114 – 122 cm</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="block-eyebrow" style="margin-top: 56px; margin-bottom: 20px;">Women</p>
+    <div class="size-table-wrap">
+      <table class="size-table">
+        <thead>
           <tr>
-            <td>XS</td>
-            <td>98</td>
-            <td>43</td>
-            <td>64</td>
-            <td>62</td>
-            <td>82 – 88 cm</td>
+            <th>Size</th>
+            <th>Chest (cm)</th>
+            <th>Shoulder (cm)</th>
+            <th>Length (cm)</th>
+            <th>Sleeve (cm)</th>
+            <th>Body Chest</th>
           </tr>
-          <tr>
-            <td>S</td>
-            <td>104</td>
-            <td>45</td>
-            <td>66</td>
-            <td>63</td>
-            <td>88 – 94 cm</td>
-          </tr>
-          <tr>
-            <td>M</td>
-            <td>110</td>
-            <td>47</td>
-            <td>68</td>
-            <td>64</td>
-            <td>94 – 100 cm</td>
-          </tr>
-          <tr>
-            <td>L</td>
-            <td>116</td>
-            <td>49</td>
-            <td>70</td>
-            <td>65</td>
-            <td>100 – 106 cm</td>
-          </tr>
-          <tr>
-            <td>XL</td>
-            <td>124</td>
-            <td>52</td>
-            <td>72</td>
-            <td>66</td>
-            <td>106 – 114 cm</td>
-          </tr>
-          <tr>
-            <td>XXL</td>
-            <td>132</td>
-            <td>55</td>
-            <td>74</td>
-            <td>67</td>
-            <td>114 – 122 cm</td>
-          </tr>
+        </thead>
+        <tbody>
+          <tr><td>XS</td><td>90</td><td>38</td><td>60</td><td>58</td><td>76 – 82 cm</td></tr>
+          <tr><td>S</td><td>96</td><td>40</td><td>62</td><td>59</td><td>82 – 88 cm</td></tr>
+          <tr><td>M</td><td>102</td><td>42</td><td>64</td><td>60</td><td>88 – 94 cm</td></tr>
+          <tr><td>L</td><td>108</td><td>44</td><td>66</td><td>61</td><td>94 – 100 cm</td></tr>
+          <tr><td>XL</td><td>116</td><td>47</td><td>68</td><td>62</td><td>100 – 108 cm</td></tr>
+          <tr><td>XXL</td><td>124</td><td>50</td><td>70</td><td>63</td><td>108 – 116 cm</td></tr>
         </tbody>
       </table>
     </div>
@@ -263,49 +247,38 @@
 <div class="fit-notes reveal">
   <div class="fit-notes-inner">
     <p class="fit-notes-eyebrow">Fit Philosophy</p>
-    <h2 class="fit-notes-title">"Designed to be worn exactly as intended."</h2>
+    <h2 class="fit-notes-title">"Designed to be worn as intended."</h2>
     <div class="fit-grid">
       <div class="fit-card">
-        <p class="fit-card-title">For a True-to-Size Fit</p>
-        <p class="fit-card-text">Order your usual size. The garment will sit <strong>slightly relaxed across the chest</strong> with a hem that falls below the hip — our intended silhouette for this piece.</p>
+        <p class="fit-card-title">Standard Proportion</p>
+        <p class="fit-card-text">Select your usual size. The garment will sit <strong>slightly relaxed across the chest</strong> with a hem falling below the hip — the intended silhouette.</p>
       </div>
       <div class="fit-card">
-        <p class="fit-card-title">For a Cleaner Silhouette</p>
-        <p class="fit-card-text">Size down by one. The fit becomes <strong>more structured across the shoulders</strong>, still comfortable but with a sharper, more tailored appearance.</p>
+        <p class="fit-card-title">Defined Silhouette</p>
+        <p class="fit-card-text">Size down by one. The structure becomes <strong>more considered across the shoulders</strong> — precise, composed, restrained.</p>
       </div>
       <div class="fit-card">
-        <p class="fit-card-title">Fabric & Shrinkage</p>
-        <p class="fit-card-text">Our 400gsm fleece is pre-washed. <strong>Minimal shrinkage occurs</strong> with cold-wash care. High-heat drying may reduce length by 1–2 cm — we recommend air-drying.</p>
+        <p class="fit-card-title">Fabric & Care</p>
+        <p class="fit-card-text">Pre-washed. <strong>Cold wash recommended.</strong> Air-dry to preserve proportion. Avoid high heat.</p>
       </div>
       <div class="fit-card">
-        <p class="fit-card-title">Between Sizes?</p>
-        <p class="fit-card-text">If you're between two sizes, consider how you prefer to wear it. <strong>Relaxed drape → go larger. Defined fit → go smaller.</strong> Both work beautifully with this cut.</p>
+        <p class="fit-card-title">Between Sizes</p>
+        <p class="fit-card-text">Consider the silhouette you prefer. <strong>Ease → size up. Structure → size down.</strong> Both are deliberate choices.</p>
       </div>
     </div>
   </div>
 </div>
-
-<!-- CTA -->
-<section class="guide-section">
-  <div class="guide-cta reveal">
-    <h2 class="guide-cta-title">Ready to choose your size?</h2>
-    <p class="guide-cta-sub">Still unsure? Our team is happy to help you decide.</p>
-    <a href="shop.html" class="btn-primary">Shop the Collection</a>
-    <a href="contact.html" class="btn-outline">Ask Us</a>
-  </div>
-</section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div>
       <a href="index.html" class="footer-logo">NOXMERE</a>
-      <p class="footer-tagline">Carry calm like a second skin</p>
+      <p class="footer-tagline">Not for every eye.</p>
     </div>
     <ul class="footer-nav">
       <li><a href="shop.html">Collection</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="size-guide.html">Size Guide</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="shipping.html">Shipping</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -315,14 +288,14 @@
         <a href="https://www.instagram.com/noxme_re?igsh=MWRxaHlyaWt2end4Yg==" target="_blank" rel="noopener" class="social-icon" title="Instagram">
           <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         </a>
-        <a href="https://www.tiktok.com/@noxmere_?_r=1&_t=ZS-96T0BQGcAlx" target="_blank" rel="noopener" class="social-icon" title="TikTok">
+        <a href="https://www.tiktok.com/@noxme_re?_r=1&_t=ZS-96fXhUpxi6P" target="_blank" rel="noopener" class="social-icon" title="TikTok">
           <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.24 8.24 0 0 0 4.83 1.55V6.79a4.85 4.85 0 0 1-1.06-.1z"/></svg>
         </a>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <a href="mailto:hello@noxmere.com" class="footer-email">hello@noxmere.com</a>
+    <a href="mailto:info.noxmere@gmail.com" class="footer-email">info.noxmere@gmail.com</a>
     <p class="footer-copy">&copy; 2026 NOXMERE. All rights reserved.</p>
   </div>
 </footer>

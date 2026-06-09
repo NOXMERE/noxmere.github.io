@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NOXMERE — About</title>
+  <link rel="icon" type="image/png" href="photos/favicon.png" />
+  <link rel="apple-touch-icon" href="photos/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -49,7 +51,7 @@
     .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; max-width: 1000px; margin: 0 auto; text-align: center; }
     .stat-item { padding: 40px 20px; border-right: 1px solid rgba(128,0,32,0.08); }
     .stat-item:last-child { border-right: none; }
-    .stat-number { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: var(--burgundy); line-height: 1; margin-bottom: 8px; }
+    .stat-number { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 400; font-variant-numeric: lining-nums; font-style: normal; color: var(--burgundy); letter-spacing: 0.06em; line-height: 1; margin-bottom: 8px; }
     .stat-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-mid); opacity: 0.6; }
 
     /* STORY SECTION */
@@ -80,8 +82,8 @@
     .about-cta { padding: 120px 48px; text-align: center; }
     .about-cta-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem,5vw,4rem); font-weight: 300; color: var(--burgundy); margin-bottom: 16px; }
     .about-cta-sub { font-size: 0.86rem; letter-spacing: 0.08em; color: var(--text-mid); opacity: 0.7; margin-bottom: 40px; }
-    .btn-primary { display: inline-block; padding: 16px 48px; background: var(--gold); color: #fff; font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: background var(--transition), transform var(--transition); }
-    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-primary { display: inline-block; padding: 16px 48px; background: #fff; color: var(--burgundy); border: 1px solid var(--burgundy); font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: background var(--transition), color var(--transition), transform var(--transition); }
+    .btn-primary:hover { background: var(--burgundy); color: #fff; transform: translateY(-2px); }
 
     /* REVEAL */
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s var(--transition), transform 0.8s var(--transition); }
@@ -137,29 +139,27 @@
 <nav>
   <a href="index.html" class="nav-logo">NOXMERE</a>
   <ul class="nav-links">
-    <li><a href="shop.html">Kolleksiya</a></li>
-    <li><a href="about.html" class="active">Haqqımızda</a></li>
-    <li><a href="contact.html">Əlaqə</a></li>
-    <li><a href="shop.html" class="nav-cta">Shop Now</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="shop.html" class="nav-cta">Enter Collection</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menyu"><span></span><span></span><span></span></button>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="shop.html" class="mobile-link">Kolleksiya</a>
-  <a href="about.html" class="mobile-link">Haqqımızda</a>
-  <a href="contact.html" class="mobile-link">Əlaqə</a>
-  <a href="size-guide.html" class="mobile-link">Ölçü Cədvəli</a>
+  <a href="shop.html" class="mobile-link">Collection</a>
+  <a href="contact.html" class="mobile-link">Contact</a>
+  <a href="size-guide.html" class="mobile-link">Size Guide</a>
   <a href="faq.html" class="mobile-link">FAQ</a>
-  <a href="shipping.html" class="mobile-link">Çatdırılma</a>
+  <a href="shipping.html" class="mobile-link">Shipping</a>
 </div>
 
 <!-- HERO -->
 <section class="about-hero">
   <div class="about-hero-bg">STORY</div>
   <div class="about-hero-inner">
-    <p class="about-eyebrow">About Us</p>
-    <h1 class="about-hero-title">"Some things should feel permanent."</h1>
-    <p class="about-hero-desc">NOXMERE was built on a single belief: clothing should be worth keeping. Not fast, not disposable.</p>
+    <p class="about-eyebrow">The House</p>
+    <h1 class="about-hero-title">Luxury was never meant to be loud.</h1>
+    <p class="about-hero-desc">NOXMERE was created around restraint, rarity, and quiet distinction — for individuals recognized by presence rather than visibility.</p>
   </div>
 </section>
 
@@ -167,20 +167,20 @@
 <div class="stats-bar">
   <div class="stats-grid">
     <div class="stat-item reveal">
-      <div class="stat-number">400</div>
-      <div class="stat-label">GSM Fleece</div>
+      <div class="stat-number" style="font-size:2rem;letter-spacing:0.05em">Private</div>
+      <div class="stat-label">Collection</div>
     </div>
     <div class="stat-item reveal" style="transition-delay:0.1s">
-      <div class="stat-number">1</div>
-      <div class="stat-label">Signature Color</div>
+      <div class="stat-number" style="font-size:2rem;letter-spacing:0.05em">Signature</div>
+      <div class="stat-label">Shades</div>
     </div>
     <div class="stat-item reveal" style="transition-delay:0.2s">
-      <div class="stat-number">4</div>
-      <div class="stat-label">Style Options</div>
+      <div class="stat-number" style="font-size:2rem;letter-spacing:0.05em">Limited</div>
+      <div class="stat-label">Release Structure</div>
     </div>
     <div class="stat-item reveal" style="transition-delay:0.3s">
       <div class="stat-number">∞</div>
-      <div class="stat-label">Seasons</div>
+      <div class="stat-label">Beyond Seasons</div>
     </div>
   </div>
 </div>
@@ -191,24 +191,24 @@
     <div class="story-num">01</div>
     <div class="story-content">
       <p class="story-label">The Beginning</p>
-      <h2 class="story-heading">A brand born from one belief</h2>
-      <p class="story-text">NOXMERE was created as a response to the overflow of fast fashion in the market. Instead of trends that change every season, we wanted to make something timeless — a piece you wear without needing to prove anything, something you simply are.</p>
+      <h2 class="story-heading">Built beyond trend culture</h2>
+      <p class="story-text">NOXMERE was established with a preference for permanence over visibility. The brand exists for individuals who understand understatement as the highest form of luxury.</p>
     </div>
   </div>
   <div class="story-block reveal" style="transition-delay:0.1s">
     <div class="story-num">02</div>
     <div class="story-content">
       <p class="story-label">The Fabric</p>
-      <h2 class="story-heading">400gsm — Why it matters</h2>
-      <p class="story-text">Most sweatshirts use 280gsm, some 320gsm. We chose 400gsm. That number represents not just weight, but structure, durability, and shape retention over the years. We didn't stop until we found a fabric that softens with every wash but never loses its form.</p>
+      <h2 class="story-heading">Structure without excess</h2>
+      <p class="story-text">Every NOXMERE piece is developed with intention — refined proportions, controlled structure, and enduring presence. Nothing unnecessary. Nothing loud.</p>
     </div>
   </div>
   <div class="story-block reveal" style="transition-delay:0.2s">
     <div class="story-num">03</div>
     <div class="story-content">
       <p class="story-label">The Color</p>
-      <h2 class="story-heading">Signature Burgundy — one color, endless versatility</h2>
-      <p class="story-text">Burgundy #800020 — this color is no accident. We tested dozens of color prototypes. It couldn't be too dark, not too bright. It had to work with every skin tone, every outfit, every season. The result: a shade that sits perfectly over casual wear and equally well over formal attire.</p>
+      <h2 class="story-heading">A signature recognized quietly</h2>
+      <p class="story-text">The NOXMERE palette was created to feel timeless, restrained, and adaptable across environments without demanding attention.</p>
     </div>
   </div>
 </section>
@@ -217,34 +217,27 @@
 <section class="values-section">
   <div class="values-inner">
     <div class="values-header reveal">
-      <p class="values-eyebrow">Our Values</p>
-      <h2 class="values-title">What NOXMERE Stands For</h2>
+      <p class="values-eyebrow">Philosophy</p>
+      <h2 class="values-title">The Principles</h2>
     </div>
     <div class="values-grid">
       <div class="value-card reveal">
         <span class="value-roman">I</span>
         <h3 class="value-name">Longevity</h3>
-        <p class="value-text">Not for one season, but for a lifetime. Every piece is made to stay strong for years to come.</p>
+        <p class="value-text">Created to remain relevant beyond seasons, trends, and temporary culture.</p>
       </div>
       <div class="value-card reveal" style="transition-delay:0.15s">
         <span class="value-roman">II</span>
-        <h3 class="value-name">Minimalism</h3>
-        <p class="value-text">Less, but perfect. No distracting emblem, no logo-covered surface — the garment speaks for itself.</p>
+        <h3 class="value-name">Restraint</h3>
+        <p class="value-text">Luxury is strongest when nothing feels forced, exaggerated, or overdesigned.</p>
       </div>
       <div class="value-card reveal" style="transition-delay:0.3s">
         <span class="value-roman">III</span>
-        <h3 class="value-name">Calm</h3>
-        <p class="value-text">Carry calm like a second skin. NOXMERE frees you from the need to prove anything when you wear it.</p>
+        <h3 class="value-name">Distinction</h3>
+        <p class="value-text">Presence does not require visibility. True refinement speaks quietly.</p>
       </div>
     </div>
   </div>
-</section>
-
-<!-- CTA -->
-<section class="about-cta">
-  <h2 class="about-cta-title reveal">Be part of the story.</h2>
-  <p class="about-cta-sub reveal">Browse our collection. Choose for yourself.</p>
-  <a href="shop.html" class="btn-primary reveal">View Collection</a>
 </section>
 
 <!-- FOOTER -->
@@ -252,11 +245,10 @@
   <div class="footer-top">
     <div>
       <a href="index.html" class="footer-logo">NOXMERE</a>
-      <p class="footer-tagline">Carry calm like a second skin</p>
+      <p class="footer-tagline">Not for every eye.</p>
     </div>
     <ul class="footer-nav">
       <li><a href="shop.html">Collection</a></li>
-      <li><a href="about.html">About</a></li>
       <li><a href="size-guide.html">Size Guide</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="shipping.html">Shipping</a></li>
@@ -267,14 +259,14 @@
         <a href="https://www.instagram.com/noxme_re?igsh=MWRxaHlyaWt2end4Yg==" target="_blank" rel="noopener" class="social-icon">
           <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         </a>
-        <a href="https://www.tiktok.com/@noxmere_?_r=1&_t=ZS-96T0BQGcAlx" target="_blank" rel="noopener" class="social-icon">
+        <a href="https://www.tiktok.com/@noxme_re?_r=1&_t=ZS-96fXhUpxi6P" target="_blank" rel="noopener" class="social-icon">
           <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.24 8.24 0 0 0 4.83 1.55V6.79a4.85 4.85 0 0 1-1.06-.1z"/></svg>
         </a>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <a href="mailto:hello@noxmere.com" class="footer-email">hello@noxmere.com</a>
+    <a href="mailto:info.noxmere@gmail.com" class="footer-email">info.noxmere@gmail.com</a>
     <p class="footer-copy">&copy; 2026 NOXMERE. All rights reserved.</p>
   </div>
 </footer>
